@@ -64,6 +64,20 @@ My work combines **Python, SQL, GIS, spatial analysis, data pipelines, dashboard
 
 ---
 
+## 🚀 Public Project
+
+### [GeoFlow · GPS Quality Studio](https://github.com/kamranak4142/kamranak4142/tree/main/projects/geoflow)
+
+[![GeoFlow — local GPS validation, audited estimates and GIS exports](projects/geoflow/docs/banner.svg)](https://github.com/kamranak4142/kamranak4142/tree/main/projects/geoflow)
+
+A local workspace for validating CSV coordinates, estimating eligible GPS gaps with a complete audit trail, and exporting **GeoJSON** or **GeoPackage** point layers.
+
+**Python · SQLite · JavaScript** · Responsive dashboard and CLI · Synthetic examples · Automated tests
+
+[View the project and screenshots →](https://github.com/kamranak4142/kamranak4142/tree/main/projects/geoflow)
+
+---
+
 ## 🎯 What I Build
 
 ```text

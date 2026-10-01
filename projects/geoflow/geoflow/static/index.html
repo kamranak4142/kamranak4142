@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GeoFlow: a local workspace for GPS quality checks, audited estimates and GIS exports.">
+  <title>GeoFlow · GPS Quality Studio</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="GeoFlow home"><img src="/favicon.svg" alt="" width="37" height="37"><span>GeoFlow<span class="brand-sub">GPS QUALITY STUDIO</span></span></a>
+    <div class="workspace-label">YOUR WORKSPACE</div>
+    <nav aria-label="Workspace">
+      <button class="nav-item active" data-view="overview"><span class="nav-icon">◫</span> Overview <span class="nav-dot"></span></button>
+      <button class="nav-item" data-view="data"><span class="nav-icon">▦</span> Dataset <span id="nav-total" class="nav-count">—</span></button>
+      <button class="nav-item" data-view="audit"><span class="nav-icon">↗</span> Repair audit</button>
+    </nav>
+    <div class="sidebar-rule"></div>
+    <div class="workspace-label">BUILT FOR BETTER DATA</div>
+    <p class="sidebar-copy">From raw coordinates to<br>GIS-ready deliverables.</p>
+    <div class="sidebar-bottom"><span class="local-dot"></span><span>Runs on your computer<br><small>No cloud uploads · v1.0</small></span></div>
+  </aside>
+  <main>
+    <header class="topbar"><div>Workspace <span>/</span> <strong id="breadcrumb">Overview</strong></div><div class="local-tag"><span></span> Local workspace <span class="top-avatar">MK</span></div></header>
+    <div class="content">
+      <section class="heading-row"><div><div class="eyebrow">DATA OPERATIONS / GEOSPATIAL</div><h1>Good data. Better maps<span>.</span></h1><p>Validate your coordinates. Estimate GPS gaps. Export with confidence.</p></div><button id="choose-file" class="button primary"><span>＋</span> Import CSV</button><input id="file-input" type="file" accept=".csv,text/csv" hidden></section>
+      <div id="error" class="notice error" role="alert" hidden></div>
+      <div id="announcement" class="sr-only" aria-live="polite"></div>
+      <section class="dataset-bar"><div class="dataset-icon">▤</div><div><strong id="dataset-name">Loading sample dataset…</strong><p id="dataset-description">Synthetic data · no real assets or client information</p></div><div class="dataset-bar-actions"><span class="chip">WGS84 · EPSG:4326</span><button id="load-demo" class="text-button">Load demo ↗</button></div></section>
+      <div class="configuration"><button id="toggle-config" class="config-toggle" aria-expanded="false">Column mapping &amp; estimate settings <span>⌄</span></button><div id="config-panel" hidden><div class="config-grid">
+        <label>Latitude<select id="latitude"></select></label><label>Longitude<select id="longitude"></select></label><label>Identifier<select id="identifier"></select></label><label>Image filename<select id="filename"></select></label><label>Extra grouping<select id="group"><option value="">None</option></select></label><label>Max missing sequence values<input id="max-gap" type="number" min="1" max="100" value="3"></label><label>Max anchor distance (m)<input id="max-distance" type="number" min="1" max="10000" value="250"></label>
+      </div><div class="config-footer"><label class="checkbox-label"><input id="zero-missing" type="checkbox" checked> Treat (0, 0) as missing GPS</label><button id="apply-config" class="button secondary">Apply settings</button></div><p class="helper">Input must be decimal degrees in WGS84. Estimates use original anchors within the same folder, filename series and selected group.</p></div></div>
+      <section class="metrics" aria-label="Dataset summary">
+        <article class="metric"><div>Total records <span class="metric-icon">▦</span></div><strong id="metric-total">—</strong><p id="metric-total-note">In the current dataset</p></article>
+        <article class="metric"><div>GIS-ready points <span class="metric-icon green">◎</span></div><strong id="metric-valid">—</strong><p><span class="green-text" id="metric-percent">—</span> have usable coordinates</p></article>
+        <article class="metric"><div>Needs attention <span class="metric-icon amber">!</span></div><strong id="metric-flagged">—</strong><p id="metric-errors">Review coordinate issues</p></article>
+        <article class="metric"><div>Estimated GPS <span class="metric-icon purple">↗</span></div><strong id="metric-estimated">—</strong><p>Every estimate has an audit trail</p></article>
+      </section>
+      <section id="view-overview" class="view">
+        <div class="overview-grid">
+          <article class="card coordinate-card"><div class="card-heading"><div><h2>Coordinate preview</h2><p>A geographic scatter plot of usable points</p></div><span class="chip muted">DECIMAL DEGREES</span></div><div class="plot-wrap"><canvas id="coordinate-plot" aria-label="Longitude and latitude scatter plot" role="img"></canvas><div id="plot-tooltip" class="plot-tooltip" hidden></div><div id="plot-empty" class="plot-empty" hidden>No usable coordinates to preview yet.</div><span class="plot-corner">WGS84 / EPSG:4326</span></div><div class="plot-footer"><span><i class="legend-dot ready"></i>Original</span><span><i class="legend-dot warning"></i>Review</span><span><i class="legend-dot estimated"></i>Estimated</span><span class="plot-footer-note">No external map service</span></div></article>
+          <article class="card quality-card"><div class="card-heading"><div><h2>Quality at a glance</h2><p>Know what needs a closer look</p></div><span class="quality-icon">◈</span></div><div class="quality-score"><strong id="quality-score">—</strong><span>%</span><p>usable coordinates</p></div><div class="quality-track"><div id="quality-fill"></div></div><div id="issue-breakdown" class="issue-breakdown"></div><div class="quality-note">Checks flag issues for review. Duplicate points may be intentional.</div></article>
+        </div>
+        <article class="repair-banner"><div class="repair-symbol">↗</div><div><h2>Fill the gaps, keep the evidence.</h2><p id="repair-note">Estimate eligible missing GPS between original image anchors. Every change stays traceable.</p></div><div class="repair-actions"><button id="reset-estimates" class="text-button" hidden>Reset estimates</button><button id="repair-button" class="button primary">Estimate missing GPS <span>→</span></button></div></article>
+      </section>
+      <section id="view-data" class="view" hidden><article class="card data-help"><h2>A clear view of every record</h2><p>Filter issues, review source values, and export usable points. Estimates never replace the source file.</p></article></section>
+      <section id="view-audit" class="view" hidden><article class="card audit-card"><div class="card-heading"><div><h2>GPS estimate audit</h2><p>Original anchors, interpolation fractions and distances for every change.</p></div><button id="download-audit" class="button secondary">Download QA report ↓</button></div><div id="audit-content"></div><div id="skipped-content"></div></article></section>
+      <article class="card table-card" id="records-card"><div class="table-heading"><div><h2>Dataset review <span id="table-count" class="count-pill">—</span></h2><p>Source rows with validation status and review notes</p></div><div class="table-tools"><input type="search" id="search" placeholder="Search records…" aria-label="Search records"><select id="filter" aria-label="Filter records"><option value="all">All records</option><option value="issues">Needs attention</option><option value="ready">GIS-ready</option><option value="estimated">Estimated GPS</option></select></div></div><div class="table-scroll"><table><thead><tr><th>ROW</th><th id="identity-header">IDENTIFIER</th><th>LATITUDE</th><th>LONGITUDE</th><th>STATUS</th><th>REVIEW NOTES</th></tr></thead><tbody id="records-body"></tbody></table></div><div class="table-footer"><span id="table-range">—</span><div><button id="previous" class="pager" aria-label="Previous page">←</button><button id="next" class="pager" aria-label="Next page">→</button></div></div></article>
+      <footer class="export-bar"><div><span class="export-icon">↧</span><div><strong>Your next step, ready to download.</strong><p>GIS exports include usable points. CSV keeps every row and its audit status.</p></div></div><div class="export-buttons"><button data-export="report" class="button text">QA report</button><button data-export="csv" class="button secondary">Audited CSV ↓</button><button data-export="geojson" class="button secondary">GeoJSON ↓</button><button data-export="gpkg" class="button primary">GeoPackage ↓</button></div></footer>
+      <div class="page-footer"><span>GeoFlow <span>·</span> A focused tool for reliable geospatial data.</span><span>Python + SQLite + Vanilla JS</span></div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

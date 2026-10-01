@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-label="GeoFlow: GPS Quality Studio. Validate, estimate, export. Local processing with Python.">
+  <rect width="1200" height="280" rx="20" fill="#f2f5ed"/>
+  <g fill="none" stroke="#dce4d3" stroke-width="1"><path d="M805 40v200M875 40v200M945 40v200M1015 40v200M1085 40v200M760 70h375M760 120h375M760 170h375M760 220h375"/></g>
+  <rect x="49" y="40" width="47" height="47" rx="13" fill="#183c34"/><path d="M61 72l7-19 10 19 7-19" stroke="#b7edac" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="109" y="62" font-family="Arial,sans-serif" font-size="16" font-weight="600" fill="#456142">GPS QUALITY STUDIO</text>
+  <text x="49" y="155" font-family="Arial,sans-serif" font-size="63" font-weight="700" fill="#183c34">GeoFlow<tspan fill="#77a65d">.</tspan></text>
+  <text x="51" y="192" font-family="Arial,sans-serif" font-size="19" fill="#7c8b70">Validate coordinates. Estimate gaps. Export GIS-ready points.</text>
+  <text x="51" y="241" font-family="Arial,sans-serif" font-size="12" fill="#8c9a80" letter-spacing="2">PYTHON  /  GEOJSON  /  GEOPACKAGE  /  OFFLINE</text>
+  <path d="M794 202L844 178 894 154 943 128 994 101 1044 76" fill="none" stroke="#9cb78b" stroke-width="2" stroke-dasharray="5 8"/>
+  <g fill="#56744b" stroke="#f2f5ed" stroke-width="4"><circle cx="794" cy="202" r="8"/><circle cx="844" cy="178" r="8"/><circle cx="943" cy="128" r="8"/><circle cx="1044" cy="76" r="8"/></g>
+  <circle cx="894" cy="154" r="16" fill="#e7dff3"/><circle cx="894" cy="154" r="7" fill="#8c6db3"/>
+  <circle cx="994" cy="101" r="16" fill="#f0e8d5"/><circle cx="994" cy="101" r="7" fill="#bd974a"/>
+  <rect x="890" y="222" width="211" height="27" rx="6" fill="#fff"/><circle cx="905" cy="235" r="3" fill="#6d9159"/><text x="917" y="239" font-family="Arial,sans-serif" font-size="10" fill="#6c805c">Local processing. Traceable estimates.</text>
+</svg>

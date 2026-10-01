@@ -1,0 +1,19 @@
+asset_id,filename,latitude,longitude,route,asset_type
+DEMO-001,sample_front_camA_0001.jpg,51.5074000,-0.1278000,SYNTHETIC-A,Demo point
+DEMO-002,sample_front_camA_0002.jpg,51.5074900,-0.1277400,SYNTHETIC-A,Demo point
+DEMO-003,sample_front_camA_0003.jpg,,,SYNTHETIC-A,Demo point
+DEMO-004,sample_front_camA_0004.jpg,51.5076700,-0.1276200,SYNTHETIC-A,Demo point
+DEMO-005,sample_front_camA_0005.jpg,51.5077600,-0.1275600,SYNTHETIC-A,Demo point
+DEMO-006,sample_front_camA_0006.jpg,51.5078500,-0.1275000,SYNTHETIC-A,Demo point
+DEMO-007,sample_front_camA_0007.jpg,0,0,SYNTHETIC-A,Demo point
+DEMO-008,sample_front_camA_0008.jpg,51.5080300,-0.1273800,SYNTHETIC-A,Demo point
+DEMO-009,sample_front_camA_0009.jpg,51.5081200,-0.1273200,SYNTHETIC-A,Demo point
+DEMO-010,sample_front_camA_0010.jpg,51.5082100,-0.1272600,SYNTHETIC-A,Demo point
+DEMO-011,sample_front_camA_0011.jpg,151,-33,SYNTHETIC-A,Demo point
+DEMO-012,sample_front_camA_0012.jpg,51.5083900,-0.1271400,SYNTHETIC-A,Demo point
+DEMO-013,sample_front_camA_0013.jpg,51.5084800,invalid,SYNTHETIC-A,Demo point
+DEMO-014,sample_front_camA_0014.jpg,51.5085700,-0.1270200,SYNTHETIC-A,Demo point
+DEMO-015,sample_front_camA_0015.jpg,51.5086600,-0.1269600,SYNTHETIC-A,Demo point
+DEMO-016,sample_front_camA_0016.jpg,51.5087500,-0.1269000,SYNTHETIC-A,Demo point
+DEMO-016,sample_front_camA_0017.jpg,51.5087500,-0.1269000,SYNTHETIC-A,Demo point
+DEMO-018,sample_front_camA_0018.jpg,,,SYNTHETIC-A,Demo point
